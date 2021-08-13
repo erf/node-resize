@@ -1,0 +1,36 @@
+{
+  "name": "node-resize",
+  "version": "1.0.0",
+  "description": "images resize web service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "export NODE_ENV=test && ava",
+    "test_server": "export NODE_ENV=test && node server.js"
+  },
+  "author": "Erlend Lind Madsen <erlendf80@gmail.com> (http://github.com/erf)",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.953.0",
+    "config": "^3.3.6",
+    "image-size": "^1.0.0",
+    "koa": "^2.13.1",
+    "koa-better-body": "^3.3.9",
+    "koa-convert": "^2.0.0",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^10.0.0",
+    "sharp": "^0.28.3",
+    "statuses": "^2.0.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "axios": "^0.21.1",
+    "form-data": "^4.0.0"
+  },
+  "ava": {
+    "verbose": true,
+    "serial": true,
+    "failFast": true
+  }
+}
