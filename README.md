@@ -66,5 +66,5 @@ aws --endpoint-url=http://localhost:4566 s3 mb s3://images
 
 npm test
 
-
+4. use the Commandeer app to check uploaded files
 
