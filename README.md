@@ -36,7 +36,7 @@ photos: [{
 ``` json
 {
 	port: 1337,
-	bucket: 'my-images',
+	bucket: 'images',
 	s3: {
 		apiVersion: '',
 		region: '',
@@ -47,4 +47,24 @@ photos: [{
 	keep_original: false,
 }
 ```
+
+## Test using LocalStack and local s3 bucket
+
+Based on the article:
+
+https://onexlab-io.medium.com/aws-s3-bucket-local-testing-using-localstack-1918fb375280
+
+1. run Docker container in 'test' folder
+
+docker-compose up
+
+2. create test bucket 'images'
+
+aws --endpoint-url=http://localhost:4566 s3 mb s3://images
+
+3. run test from root folder
+
+npm test
+
+
 

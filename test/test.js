@@ -1,5 +1,4 @@
 const test = require('ava')
-
 const axios = require('axios');
 const config = require('config')
 const FormData = require('form-data');

@@ -1,12 +1,11 @@
 {
   "name": "node-resize",
   "version": "1.0.0",
-  "description": "images resize web service",
+  "description": "images resize service",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "export NODE_ENV=test && ava",
-    "test_server": "export NODE_ENV=test && node server.js"
+    "test": "export NODE_ENV=test && ava"
   },
   "author": "Erlend Lind Madsen <erlendf80@gmail.com> (http://github.com/erf)",
   "license": "ISC",
