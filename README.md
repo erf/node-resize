@@ -1,8 +1,35 @@
 # node-resize
 
-An image resize web server built on node.js and sharp.
+An image resize server built on node.js and sharp.
 
-## model example
+
+## Test
+
+See `test/README.md`
+
+## Config
+
+Configure a `config/default.json` with your AWS credentials, bucket, sizes, port
+and a keep_original field.
+
+``` json
+{
+	port: 1337,
+	bucket: 'images',
+	s3: {
+		apiVersion: '',
+		region: '',
+		accessKeyId: '',
+		secretAccessKey: ''
+	},
+	sizes: [[84, 84], [172, 172], [320, 320], [640, 640], [1024, 1024]],
+	keep_original: false,
+}
+```
+
+## Model
+
+The response looks like this:
 
 ``` json
 photos: [{
@@ -30,41 +57,3 @@ photos: [{
 	}],
 }]
 ```
-
-## config example
-
-``` json
-{
-	port: 1337,
-	bucket: 'images',
-	s3: {
-		apiVersion: '',
-		region: '',
-		accessKeyId: '',
-		secretAccessKey: ''
-	},
-	sizes: [[84, 84], [172, 172], [320, 320], [640, 640], [1024, 1024]],
-	keep_original: false,
-}
-```
-
-## Test using LocalStack and local s3 bucket
-
-Based on the article:
-
-https://onexlab-io.medium.com/aws-s3-bucket-local-testing-using-localstack-1918fb375280
-
-1. run Docker container in 'test' folder
-
-docker-compose up
-
-2. create test bucket 'images'
-
-aws --endpoint-url=http://localhost:4566 s3 mb s3://images
-
-3. run test from root folder
-
-npm test
-
-4. use the Commandeer app to check uploaded files
-
