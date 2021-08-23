@@ -73,3 +73,5 @@ photos: [{
 ## Contribute
 
 If you have ideas on how to speed up performance or improve this repo somehow, please create an issue or a PR. Thanks!
+
+Let's make the best image-resize micro service for nodejs :D
