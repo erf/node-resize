@@ -1,6 +1,6 @@
 # node-resize
 
-An image resize server built on node.js and sharp.
+An image resize server built on [node.js](https://nodejs.org) and [sharp](https://github.com/lovell/sharp)
 
 
 ## Test
