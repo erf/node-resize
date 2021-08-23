@@ -7,7 +7,7 @@ An image resize server built using [node.js](https://nodejs.org), [sharp](https:
 A node server receives a `multipart/form-data` request at `api/image`.
 
 The server will then resize the image using `sharp` to a set of `sizes`
-configured in `config/default.json`. 
+configured using [node-config](https://github.com/lorenwest/node-config).
 
 The server will then upload the resized images to an `AWS S3` bucket configured
 in the configuration file. See [Config](#config).
@@ -21,10 +21,12 @@ See `test/README.md`
 
 ## Config
 
-Configure a `config/default.json` with your AWS credentials, bucket, sizes, port
-and a keep_original field.
+We use [node-config](https://github.com/lorenwest/node-config) to configure the
+service `port`, AWS S3 `bucket` and API `keys` and `sizes`.
 
-``` json
+### Format
+
+```javascript
 {
 	port: 1337,
 	bucket: 'images',
@@ -41,9 +43,12 @@ and a keep_original field.
 
 ## Response
 
-The response looks like this:
+The response is an json array per image with links and sizes of all the resized
+images.
 
-``` json
+Example:
+
+```javascript
 photos: [{
 	id: "fea4f480-7ce0-4143-a310-a03c2b2cdbc6",
 	ext: "jpg",
