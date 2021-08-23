@@ -6,14 +6,14 @@ An image resize server built using [node.js](https://nodejs.org), [sharp](https:
 
 A node server receives a `multipart/form-data` request at `api/image`.
 
-The server will then resize the image using `sharp` to a set of sizes configured
-in `config/default.json`. 
+The server will then resize the image using `sharp` to a set of `sizes`
+configured in `config/default.json`. 
 
 The server will then upload the resized images to an `AWS S3` bucket configured
-in the configuration file. See [Config][#config].
+in the configuration file. See [Config](#config).
 
 The response is a `json` file with URLs to all the rezised images on `S3`. See
-[Response][#response].
+[Response](#response).
 
 ## Test
 
