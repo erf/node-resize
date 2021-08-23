@@ -22,7 +22,7 @@ See `test/README.md`
 ## Config
 
 We use [node-config](https://github.com/lorenwest/node-config) to configure the
-service `port`, AWS S3 `bucket` and API `keys` and `sizes`.
+service `port`, AWS `s3` keys, `bucket` and the `sizes` you'd like in return.
 
 ### Format
 
