@@ -42,7 +42,7 @@ service `port`, AWS `s3` keys, `bucket` and the `sizes` you'd like in return.
 The response is an json array per image with links and sizes of all the resized
 images.
 
-Example:
+### Format
 
 ```javascript
 photos: [{
