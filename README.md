@@ -15,10 +15,6 @@ using [node-config](https://github.com/lorenwest/node-config)
 4. The server returns a `json` [response](#response) with URLs and sizes of all
 the resized images on `S3`
 
-## Test
-
-See `test/README.md`
-
 ## Config
 
 We use [node-config](https://github.com/lorenwest/node-config) to configure the
@@ -74,6 +70,10 @@ photos: [{
 	}],
 }]
 ```
+
+## Test
+
+See `test/README.md`
 
 ## Contribute
 
