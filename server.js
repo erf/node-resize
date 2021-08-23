@@ -21,6 +21,7 @@ app.use(convert(body({
 })))
 
 router.post('/api/image', resize)
+
 router.get('/api/status', status)
 
 app.use(router.routes())

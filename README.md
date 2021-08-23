@@ -2,6 +2,18 @@
 
 An image resize server built using [node.js](https://nodejs.org), [sharp](https://github.com/lovell/sharp), [S3](https://aws.amazon.com/s3/) and [Koa](https://koajs.com/)
 
+## How it works
+
+A node server receives a `multipart/form-data` request at `api/image`.
+
+The server will then resize the image using `sharp` to a set of sizes configured
+in `config/default.json`. 
+
+The server will then upload the resized images to an `AWS S3` bucket configured
+in the configuration file. See [Config][#config].
+
+The response is a `json` file with URLs to all the rezised images on `S3`. See
+[Response][#response].
 
 ## Test
 
@@ -27,7 +39,7 @@ and a keep_original field.
 }
 ```
 
-## Model
+## Response
 
 The response looks like this:
 
@@ -57,3 +69,7 @@ photos: [{
 	}],
 }]
 ```
+
+## Contribute
+
+If you have ideas on how to speed up performance or improve this repo somehow, please create an issue or a PR. Thanks!
