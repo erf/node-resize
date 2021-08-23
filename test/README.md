@@ -25,5 +25,5 @@ npm test
 
 ## Examine data
 
-You can use the Commandeer app to check images in bucket.
+You can use the [Commandeer app](https://getcommandeer.com/) to examine the images in the container bucket.
 
