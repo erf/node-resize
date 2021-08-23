@@ -1,3 +1,4 @@
+// configuration for testing against the LocalStack docker container
 module.exports = {
 	port: 4000,
 	bucket: 'images',
