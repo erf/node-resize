@@ -20,7 +20,7 @@ the resized images on `S3`
 We use [node-config](https://github.com/lorenwest/node-config) to configure the
 service `port`, AWS `s3` keys, `bucket` and the `sizes` you'd like in return.
 
-### Format
+### Example
 
 ```javascript
 {
@@ -42,10 +42,10 @@ service `port`, AWS `s3` keys, `bucket` and the `sizes` you'd like in return.
 The response is an json array per image with links and sizes of all the resized
 images.
 
-### Format
+### Example
 
 ```javascript
-photos: [{
+[{
 	id: "fea4f480-7ce0-4143-a310-a03c2b2cdbc6",
 	ext: "jpg",
 	filename: "fea4f480-7ce0-4143-a310-a03c2b2cdbc6.jpg",
@@ -55,15 +55,15 @@ photos: [{
 		width: 640,
 		height: 640,
 		url: "http://s3-eu-west-1.amazonaws.com/my-images/640x640_0067505f-99db-4770-8fda-df70c8f879e0.jpg"
-		}, {
+	}, {
 		width: 320,
 		height: 320,
 		url: "http://s3-eu-west-1.amazonaws.com/my-images/320x320_0067505f-99db-4770-8fda-df70c8f879e0.jpg"
-		}, {
+	}, {
 		width: 172,
 		height: 172,
 		url: "http://s3-eu-west-1.amazonaws.com/my-images/172x172_0067505f-99db-4770-8fda-df70c8f879e0.jpg"
-		}, {
+	}, {
 		width: 84,
 		height: 84,
 		url: "http://s3-eu-west-1.amazonaws.com/my-images/84x84_0067505f-99db-4770-8fda-df70c8f879e0.jpg"
