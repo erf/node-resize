@@ -26,9 +26,11 @@ router.get('/api/status', status)
 
 app.use(router.routes())
 
-const server = app.listen(config.port)
+const port = process.env.PORT || config.port
 
-console.log('node-resize running on port ' + config.port)
+const server = app.listen(port)
+
+console.log('node-resize running on port ' + port)
 
 exports.close = () => {
 	server.close()
