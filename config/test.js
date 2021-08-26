@@ -8,6 +8,6 @@ module.exports = {
 		s3ForcePathStyle: true
 	},
 	sizes: [[84, 84], [172, 172], [320, 320], [640, 640], [1024, 1024]],
-	keep_original: false,
+	keep_original: true,
 }
 

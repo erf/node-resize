@@ -34,7 +34,7 @@ test('upload image', async t => {
 	t.truthy(photo.url)
 	t.truthy(photo.main)
 
-	t.is(photo.scaled.length, 5)
+	t.is(photo.scaled.length, 6)
 
 	t.truthy(photo.scaled[0].url)
 	t.is(photo.scaled[0].width, 84)
@@ -56,9 +56,9 @@ test('upload image', async t => {
 	t.is(photo.scaled[4].width, 1024)
 	t.is(photo.scaled[4].height, 1024)
 
-	//t.truthy(photo.scaled[5].url)
-	//t.is(photo.scaled[5].width, 1920)
-	//t.is(photo.scaled[5].height, 1080)
+	t.truthy(photo.scaled[5].url)
+	t.is(photo.scaled[5].width, 1920)
+	t.is(photo.scaled[5].height, 1080)
 
 })
 
