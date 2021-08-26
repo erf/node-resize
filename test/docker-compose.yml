@@ -13,3 +13,4 @@ services:
     volumes: 
       - "${TEMPDIR:-/tmp/localstack}:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
+      - ./scripts:/docker-entrypoint-initaws.d
