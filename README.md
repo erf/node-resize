@@ -10,7 +10,7 @@ An image resize server built using [node.js](https://nodejs.org), [sharp](https:
 
 3. images are uploaded to an `AWS S3` bucket using streams
 
-4. a `json` [response](#response) with URL's and sizes is returned
+4. we return a `JSON` [response](#response) with links and sizes
 
 ## Config
 
