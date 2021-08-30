@@ -1,7 +1,6 @@
 "use strict"
 
 const { readFile, unlink } = require('fs/promises')
-const { createReadStream } = require('fs')
 const { Readable } = require('stream')
 const path = require('path')
 const sharp = require('sharp')
