@@ -22,5 +22,12 @@ npm test
 
 ## Examine data
 
-You can use the [Commandeer app](https://getcommandeer.com/) to examine the images in the container bucket.
+### List images
+
+aws --endpoint-url=http://localhost:4566 s3 ls images
+
+### Download image
+
+aws --endpoint-url=http://localhost:4566 s3 cp s3://images/e3ac1970-09da-11ec-baa6-215de898dcb9_1920_1080_.jpg test_image.jpg
+
 
