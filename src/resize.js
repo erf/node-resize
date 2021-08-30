@@ -22,7 +22,7 @@ module.exports = async ctx => {
 	const [ file ] = ctx.request.files
 
 	// get image size
-	const fileSize = sizeOf(file.path)
+	const imageSize = sizeOf(file.path)
 
 	// resize sizes
 	const sizes = config.sizes
@@ -52,7 +52,7 @@ module.exports = async ctx => {
 	// if keep original image
 	if (config.keep_original) {
 		imageBuffers.push(fileBuffer)
-		sizes.push([fileSize.width, fileSize.height])
+		sizes.push([imageSize.width, imageSize.height])
 	}
 
 	// upload
