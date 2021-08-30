@@ -46,11 +46,11 @@ module.exports = async ctx => {
 	const readableStream = createReadStream(file.path)
 
 	// resize
-	const resizeStreams = sizes.map(([w, h]) => readableStream.pipe(sharp().resize(w, h)))
+	const imageStreams = sizes.map(([w, h]) => readableStream.pipe(sharp().resize(w, h)))
 
 	// if keep original image
 	if (config.keep_original) {
-		resizeStreams.push(readableStream)
+		imageStreams.push(readableStream)
 		sizes.push([width, height])
 	}
 
@@ -58,7 +58,7 @@ module.exports = async ctx => {
 	const uploadTasks = sizes.map(([w, h], i) => s3.upload({
 		Bucket: config.bucket,
 		Key: `${uuid}_${w}_${h}_${ext}`,
-		Body: resizeStreams[i],
+		Body: imageStreams[i],
 		ACL: "public-read"
 	}).promise())
 
