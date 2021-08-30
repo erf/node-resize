@@ -47,14 +47,14 @@ module.exports = async ctx => {
 	const imageBuffer = await readFile(file.path)
 
 	// create stream from image buffer
-	const readableStream = Readable.from(imageBuffer);
+	const imageStream = Readable.from(imageBuffer);
 
 	// resize
-	const imageStreams = sizes.map(([w, h]) => readableStream.pipe(sharp().resize(w, h)))
+	const imageStreams = sizes.map(([w, h]) => imageStream.pipe(sharp().resize(w, h)))
 
 	// if keep original image
 	if (config.keep_original) {
-		imageStreams.push(readableStream)
+		imageStreams.push(imageStream)
 		sizes.push([width, height])
 	}
 
