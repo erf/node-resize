@@ -74,6 +74,6 @@ See `test/README.md`
 
 ## Contribute
 
-If you have ideas on how to speed up performance or improve this repo, please create an issue or a PR. Thanks!
+If you have ideas on how to improve `node-resize`, please create an issue or a PR.
 
-Let's make the best / fastest image-resize micro service for Node.js !
+Let's make the best (and fastest) image-resize server for Node.js !
