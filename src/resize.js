@@ -1,16 +1,12 @@
 "use strict"
 
-const fs = require('fs')
+const { readFile, unlink } = require('fs/promises')
 const path = require('path')
-const { promisify } = require('util')
 const sharp = require('sharp')
 const sizeOf = require('image-size')
 const config = require('config')
 const { v1: uuidv1 } = require('uuid');
 const AWS = require('aws-sdk')
-
-const readFilePromise = promisify(fs.readFile)
-const unlinkPromise = promisify(fs.unlink)
 
 const s3 = new AWS.S3(config.s3)
 
@@ -36,7 +32,7 @@ module.exports = async ctx => {
 		throw { status: 400 }
 	}
 
-	const fileBuffer = await readFilePromise(file.path)
+	const fileBuffer = await readFile(file.path)
 
 	// create image id, 6c84fb90-12c4-11e1-840d-7b25c5ee775a
 	const uuid = uuidv1()
@@ -91,7 +87,7 @@ module.exports = async ctx => {
 	const photos = [ photo ]
 
 	// delete original image
-	await unlinkPromise(file.path)
+	await unlink(file.path)
 
 	// set response
 	ctx.body = photos
