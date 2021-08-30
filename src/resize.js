@@ -23,7 +23,7 @@ module.exports = async ctx => {
 	}
 
 	// read file from /upload
-	const file = ctx.request.files[0]
+	const [ file ] = ctx.request.files
 
 	// get image size
 	const originalSize = sizeOf(file.path)
