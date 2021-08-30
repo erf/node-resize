@@ -28,6 +28,6 @@ aws --endpoint-url=http://localhost:4566 s3 ls images
 
 ### Download image
 
-aws --endpoint-url=http://localhost:4566 s3 cp s3://images/e3ac1970-09da-11ec-baa6-215de898dcb9_1920_1080_.jpg test_image.jpg
+aws --endpoint-url=http://localhost:4566 s3 cp s3://images/[IMAGE] [IMAGE_OUT]
 
 
