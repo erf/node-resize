@@ -1,12 +1,13 @@
 "use strict"
 
-const { unlink } = require('fs/promises')
+const { readFile, unlink } = require('fs/promises')
 const { createReadStream } = require('fs')
+const { Readable } = require('stream')
 const path = require('path')
 const sharp = require('sharp')
 const sizeOf = require('image-size')
 const config = require('config')
-const { v1: uuidv1 } = require('uuid');
+const { v1: uuidv1 } = require('uuid')
 const AWS = require('aws-sdk')
 
 const s3 = new AWS.S3(config.s3)
@@ -42,8 +43,11 @@ module.exports = async ctx => {
 	// filename -> 6c84fb90-12c4-11e1-840d-7b25c5ee775a.jpg
 	const filename = uuid + ext
 
-	// readable stream
-	const readableStream = createReadStream(file.path)
+	// readable image buffer
+	const imageBuffer = await readFile(file.path)
+
+	// create stream from image buffer
+	const readableStream = Readable.from(imageBuffer);
 
 	// resize
 	const imageStreams = sizes.map(([w, h]) => readableStream.pipe(sharp().resize(w, h)))
