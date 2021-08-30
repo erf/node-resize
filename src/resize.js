@@ -60,15 +60,12 @@ module.exports = async ctx => {
 	}
 
 	// upload
-	const uploadTasks = sizes.map((size, i) => {
-		const data = {
-			Bucket: config.bucket,
-			Key: `${uuid}_${size[0]}_${size[1]}_${ext}`,
-			Body: imageBuffers[i],
-			ACL: "public-read"
-		}
-		return s3.upload(data).promise()
-	})
+	const uploadTasks = sizes.map(([w, h], i) => s3.upload({
+		Bucket: config.bucket,
+		Key: `${uuid}_${w}_${h}_${ext}`,
+		Body: imageBuffers[i],
+		ACL: "public-read"
+	}).promise())
 
 	let uploadResults = await Promise.all(uploadTasks)
 
