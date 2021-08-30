@@ -48,9 +48,8 @@ module.exports = async ctx => {
 	const filename = uuid + ext
 
 	// resize
-	const resizeTasks = sizes.map((size) => {
-		return sharp(fileBuffer).resize(size[0], size[1]).toBuffer()
-	})
+	const resizeTasks = sizes.map((size) =>
+		sharp(fileBuffer).resize(size[0], size[1]).toBuffer())
 
 	const imageBuffers = await Promise.all(resizeTasks)
 
