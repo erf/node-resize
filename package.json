@@ -7,6 +7,7 @@
     "start": "node server.js",
     "test": "export NODE_ENV=test && ava"
   },
+  "engines" : { "node" : ">=0.14" },
   "author": "Erlend Lind Madsen <erlendf80@gmail.com> (http://github.com/erf)",
   "license": "ISC",
   "dependencies": {
