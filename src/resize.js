@@ -1,6 +1,7 @@
 "use strict"
 
-const { readFile, unlink } = require('fs/promises')
+const { unlink } = require('fs/promises')
+const { createReadStream } = require('fs')
 const path = require('path')
 const sharp = require('sharp')
 const sizeOf = require('image-size')
@@ -32,8 +33,6 @@ module.exports = async ctx => {
 		throw { status: 400 }
 	}
 
-	const fileBuffer = await readFile(file.path)
-
 	// create image id, 6c84fb90-12c4-11e1-840d-7b25c5ee775a
 	const uuid = uuidv1()
 
@@ -43,15 +42,15 @@ module.exports = async ctx => {
 	// filename -> 6c84fb90-12c4-11e1-840d-7b25c5ee775a.jpg
 	const filename = uuid + ext
 
-	// resize
-	const resizeTasks = sizes.map(([w, h]) => sharp(fileBuffer).resize(w, h).toBuffer())
+	// readable stream
+	const readableStream = createReadStream(file.path)
 
-	// perform tasks
-	const imageBuffers = await Promise.all(resizeTasks)
+	// resize
+	const resizeStreams = sizes.map(([w, h]) => readableStream.pipe(sharp().resize(w, h)))
 
 	// if keep original image
 	if (config.keep_original) {
-		imageBuffers.push(fileBuffer)
+		resizeStreams.push(readableStream)
 		sizes.push([imageSize.width, imageSize.height])
 	}
 
@@ -59,7 +58,7 @@ module.exports = async ctx => {
 	const uploadTasks = sizes.map(([w, h], i) => s3.upload({
 		Bucket: config.bucket,
 		Key: `${uuid}_${w}_${h}_${ext}`,
-		Body: imageBuffers[i],
+		Body: resizeStreams[i],
 		ACL: "public-read"
 	}).promise())
 
