@@ -1,24 +1,21 @@
 # node-resize
 
-An image resize server built using [node.js](https://nodejs.org), [sharp](https://github.com/lovell/sharp), [S3](https://aws.amazon.com/s3/) and [Koa](https://koajs.com/)
+An image resize server built using [node.js](https://nodejs.org), [sharp](https://github.com/lovell/sharp) and [S3](https://aws.amazon.com/s3/)
 
 ## How it works
 
-1. A Node.js server receives a `multipart/form-data` request at `api/image`
+1. we receive `multipart/form-data` requests at `api/image`
 
-2. The server resizes the image using `sharp` to a set of `sizes` configured
-using [node-config](https://github.com/lorenwest/node-config)
+2. images are resized using `sharp` to a set of configured `sizes` 
 
-3. The server uploads the resized images to an `AWS S3` bucket configured in a
-[config](#config) file
+3. images are uploaded to an `AWS S3` bucket
 
-4. The server returns a `json` [response](#response) with URLs and sizes of all
-the resized images on `S3`
+4. a `json` [response](#response) with URL's and sizes is returned
 
 ## Config
 
-We use [node-config](https://github.com/lorenwest/node-config) to configure the
-service `port`, AWS `s3` keys, `bucket` and the `sizes` you'd like in return.
+We use [node-config](https://github.com/lorenwest/node-config) to configure
+`AWS`, sizes and more.
 
 ### Example
 
@@ -39,7 +36,7 @@ service `port`, AWS `s3` keys, `bucket` and the `sizes` you'd like in return.
 
 ## Response
 
-The response is an json array per image with links and sizes of all the resized
+The response is an `JSON` array per image with links and sizes of all the resized
 images.
 
 ### Example
@@ -77,6 +74,6 @@ See `test/README.md`
 
 ## Contribute
 
-If you have ideas on how to speed up performance or improve this repo somehow, please create an issue or a PR. Thanks!
+If you have ideas on how to speed up performance or improve this repo, please create an issue or a PR. Thanks!
 
-Let's make the best image-resize micro service for nodejs :D
+Let's make the best / fastest image-resize micro service for Node.js !
