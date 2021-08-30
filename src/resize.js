@@ -26,7 +26,7 @@ module.exports = async ctx => {
 	const [ file ] = ctx.request.files
 
 	// get image size
-	const originalSize = sizeOf(file.path)
+	const fileSize = sizeOf(file.path)
 
 	// resize sizes
 	const sizes = config.sizes
@@ -56,7 +56,7 @@ module.exports = async ctx => {
 	// if keep original image
 	if (config.keep_original) {
 		imageBuffers.push(fileBuffer)
-		sizes.push([originalSize.width, originalSize.height])
+		sizes.push([fileSize.width, fileSize.height])
 	}
 
 	// upload
@@ -79,7 +79,7 @@ module.exports = async ctx => {
 	}))
 
 	// last
-	let [last] = uploadResults.slice(-1)
+	let [ last ] = uploadResults.slice(-1)
 
 	const photo = {
 		id: uuid,
@@ -91,7 +91,7 @@ module.exports = async ctx => {
 	}
 
 	// in the future we might support multiple photos
-	const photos = [photo]
+	const photos = [ photo ]
 
 	// delete original image
 	await unlinkPromise(file.path)
