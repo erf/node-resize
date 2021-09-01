@@ -1,6 +1,6 @@
 # node-resize
 
-An image resize server built using [node.js](https://nodejs.org), [sharp](https://github.com/lovell/sharp) and [S3](https://aws.amazon.com/s3/)
+An image resize server built using [Node.js](https://nodejs.org), [sharp](https://github.com/lovell/sharp), [AWS S3](https://aws.amazon.com/s3/) and [koa](https://koajs.com/)
 
 ## How it works
 
