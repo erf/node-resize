@@ -8,9 +8,9 @@ const config = require('config')
 const router = require('koa-router')()
 const convert = require('koa-convert')
 
-const error = require('./src/error')
-const resize = require('./src/resize')
-const status = require('./src/status')
+const error = require('./lib/error')
+const resize = require('./lib/resize')
+const status = require('./lib/status')
 
 const app = new Koa()
 app.use(error)
