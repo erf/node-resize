@@ -4,7 +4,6 @@ const { readFile, unlink } = require('fs/promises')
 const { Readable } = require('stream')
 const path = require('path')
 const sharp = require('sharp')
-const sizeOf = require('image-size')
 const config = require('config')
 const { v1: uuidv1 } = require('uuid')
 const AWS = require('aws-sdk')
@@ -23,7 +22,7 @@ module.exports = async ctx => {
 	const [ file ] = ctx.request.files
 
 	// get image size
-	const { width, height } = sizeOf(file.path)
+	const { width, height } = await sharp(file.path).metadata()
 
 	// resize sizes
 	const sizes = config.sizes
