@@ -13,7 +13,7 @@
   "author": "Erlend Lind Madsen <erlendf80@gmail.com> (http://github.com/erf)",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1384.0",
+    "aws-sdk": "^2.1387.0",
     "config": "^3.3.9",
     "koa": "^2.14.2",
     "koa-better-body": "^3.3.9",
